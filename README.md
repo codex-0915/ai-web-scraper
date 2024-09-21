@@ -21,6 +21,9 @@ Activate the virtual environment
 ```
 # For Unix Terminal
 source ai/Scripts/activate
+```
+
+```
 # Or (depending on where the activate command is located)
 source ai/bin/activate
 ```
@@ -28,8 +31,18 @@ source ai/bin/activate
 ```
 # For Powershell
 .\ai\Scripts\activate.ps1
+```
+
+```
 # For Command Prompt
 .\ai\Scripts\activate.bat
+```
+
+Run the website
+
+```
+# Run the streamlit website
+streamlit run main.py
 ```
 
 ## TODO

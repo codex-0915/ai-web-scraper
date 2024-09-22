@@ -1,13 +1,15 @@
 import selenium.webdriver as webdriver
 from selenium.webdriver.chrome.service import Service
 import time
-from bs4 import BeautifulSoup
-
 from selenium.webdriver import Remote, ChromeOptions
 from selenium.webdriver.chromium.remote_connection import ChromiumRemoteConnection
-from selenium.webdriver.common.by import By
-AUTH = 'USER:PASS'
-SBR_WEBDRIVER = f'https://{AUTH}@zproxy.lum-superproxy.io:9515'
+from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+SBR_WEBDRIVER = os.getenv("SBR_WEBDRIVER")
 
 def scrape_website(website, unblock_website=False):
     """
@@ -22,20 +24,21 @@ def scrape_website(website, unblock_website=False):
     print("Launching chrome browser...")
 
     if unblock_website:
-        print('Connecting to Scraping Browser...')
-        sbr_connection = ChromiumRemoteConnection(SBR_WEBDRIVER, 'goog', 'chrome')
+        print("Connecting to Scraping Browser...")
+        sbr_connection = ChromiumRemoteConnection(SBR_WEBDRIVER, "goog", "chrome")
         with Remote(sbr_connection, options=ChromeOptions()) as driver:
             driver.get(website)
-            # CAPTCHA handling
-            print('Waiting for CAPTCHA to solve...')
-            solve_res = driver.execute('executeCdpCommand', {
-                'cmd': 'Captcha.waitForSolve',
-                'params': {'detectTimeout': 10000},
-            })
-            print('CAPTCHA solve status: ', solve_res['value']['value'])
-            print('Navigated! Scraping page content...')
+            print("Waiting captcha to solve...")
+            solve_res = driver.execute(
+                "executeCdpCommand",
+                {
+                    "cmd": "Captcha.waitForSolve",
+                    "params": {"detectTimeout": 10000},
+                },
+            )
+            print("Captcha solve status:", solve_res["value"]["status"])
+            print("Navigated! Scraping page content...")
             html = driver.page_source
-            # print(html)
 
     else:
         # Update chromedriver depending on your OS and chrome version, to download the latest version, visit "https://googlechromelabs.github.io/chrome-for-testing/#stable"

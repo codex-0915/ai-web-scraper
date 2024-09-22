@@ -51,9 +51,9 @@ streamlit run main.py
 
 - [x] Create a simple streamlit user interface
 - [x] Grab data to be scraped from the website (use Selenium)
-- [x] Add unblocking of websites/ captchas/ ip bans (optional, use free credits from [BrightData](brightdata.com))
-- [ ] Create a sample .env file for the website unblocker
-- [ ] Test if website unblocker works
-- [ ] Clean the data to be passed to the LLMs
+- [x] Add unblocking of websites / captchas / ip bans (optional, use free credits from [BrightData](brightdata.com))
+- [x] Create a sample .env file for the website unblocker
+- [x] Test if website unblocker works
+- [x] Clean the data to be passed to the LLMs
 - [ ] Pass data to LLMs (ChatGPT? GPT-4? Llama3?)
 - [ ] Parse the data from the LLM to get meaningful response/info

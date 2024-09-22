@@ -49,9 +49,9 @@ streamlit run main.py
 
 ### Plans / Steps
 
-- [/] Create a simple streamlit user interface
-- [/] Grab data to be scraped from the website (use Selenium)
-- [/] Add unblocking of websites/ captchas/ ip bans (optional, use free credits from [BrightData](brightdata.com))
+- [x] Create a simple streamlit user interface
+- [x] Grab data to be scraped from the website (use Selenium)
+- [x] Add unblocking of websites/ captchas/ ip bans (optional, use free credits from [BrightData](brightdata.com))
 - [ ] Create a sample .env file for the website unblocker
 - [ ] Test if website unblocker works
 - [ ] Clean the data to be passed to the LLMs
